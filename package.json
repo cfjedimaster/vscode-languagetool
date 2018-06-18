@@ -6,7 +6,7 @@
     },
     "displayName": "languagetool",
     "description": "A wrapper to the LanguageTool API, providing spelling and grammar checking.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "raymondcamden",
     "engines": {
         "vscode": "^1.24.0"

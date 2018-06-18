@@ -37,11 +37,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         let results = await checkText(text);
 
-        console.log(`[languagetool] i got ${results.length} results`);
         console.log(results);
 
         // now id make some good html
-        let html = generateHTML(results);
+        let html = generateHTML(results as Array<any>);
 
         // now render it
         const panel = vscode.window.createWebviewPanel(
@@ -103,7 +102,7 @@ async function checkText(s:string) {
 
 }
 
-function generateHTML(data) {
+function generateHTML(data:Array<any>):string {
 
     /*
     So before release, I decided to simply render all the rules the same. I'm keeping some old bits in
@@ -124,7 +123,7 @@ function generateHTML(data) {
         let sentence = d.context.text.replace(badword, '<b><i>'+badword+'</i></b>');
         s += sentence+'<br/>';
         let replacements:string[] = [];
-        d.replacements.forEach(r => {
+        d.replacements.forEach((r: any) => {
             replacements.push(r.value);
         });
         s += 'Suggestions: '+replacements.join(',');
