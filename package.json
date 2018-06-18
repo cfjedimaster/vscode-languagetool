@@ -1,0 +1,50 @@
+{
+    "name": "languagetool",
+    "repository": {
+        "type":"git",
+        "url":"https://github.com/cfjedimaster/vscode-languagetool"
+    },
+    "displayName": "languagetool",
+    "description": "A wrapper to the LanguageTool API, providing spelling and grammar checking.",
+    "version": "1.0.0",
+    "publisher": "raymondcamden",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.runLanguageTool"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.runLanguageTool",
+                "title": "Run LanguageTool"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "@types/request-promise": "^4.1.41",
+        "@types/showdown": "^1.7.4",
+        "request": "^2.87.0",
+        "request-promise": "^4.2.2",
+        "showdown": "^1.8.6"
+    }
+}
